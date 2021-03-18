@@ -15,7 +15,8 @@ jobs:
         python-version: "3.6"
     - name: 
       run: |
+        echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
         BASE_COMMIT=`git rev-parse --verify $GITHUB_BASE_REF`
         CURRENT_COMMIT=$GITHUB_SHA
-        git diff $BASE_COMMIT...$CURRENT_COMMIT
+        git diff ${BASE_COMMIT}...${CURRENT_COMMIT}
         
