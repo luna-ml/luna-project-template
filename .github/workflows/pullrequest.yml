@@ -1,0 +1,19 @@
+name: Validate, Evaluate and Score locally
+
+on:
+  pull_request:
+
+jobs:
+  server:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout latest code
+      uses: actions/checkout@v2
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v2
+      with:
+        python-version: "3.6"
+    - name: 
+      run: |
+        git diff $GITHUB_BASE_REF...$GITHUB_SHA
+        
