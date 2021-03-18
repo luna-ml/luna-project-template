@@ -22,3 +22,4 @@ jobs:
 
         #echo "GITHUB_SHA = ${{ github.sha }}"
         #echo "PR_HEAD_SHA = ${{ github.event.pull_request.head.sha }}"
+    - uses: luna-ml/luna-action@main
