@@ -17,11 +17,13 @@ jobs:
       run: |
         git remote -vv
         git branch -vv
-        git fetch origin
+        git fetch origin $GITHUB_BASE_REF
         git show-ref --head
         echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
         BASE_COMMIT=`git rev-parse --verify origin/$GITHUB_BASE_REF`
         echo "Base commit = $BASE_COMMIT"
-        CURRENT_COMMIT=$GITHUB_SHA
+        
+        # CURRENT_COMMIT=$GITHUB_SHA
+        CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}
         git diff ${BASE_COMMIT}...${CURRENT_COMMIT}
         
