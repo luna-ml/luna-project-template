@@ -15,8 +15,10 @@ jobs:
         python-version: "3.6"
     - name: 
       run: |
+        git remote -vv
         git branch -vv
-        git show-ref --head 
+        git fetch origin/$GITHUB_BASE_REF
+        git show-ref --head
         echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
         BASE_COMMIT=`git rev-parse --verify $GITHUB_BASE_REF`
         CURRENT_COMMIT=$GITHUB_SHA
