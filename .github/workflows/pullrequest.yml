@@ -17,7 +17,7 @@ jobs:
       run: |
         git remote -vv
         git branch -vv
-        git fetch origin/$GITHUB_BASE_REF
+        git fetch origin
         git show-ref --head
         echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
         BASE_COMMIT=`git rev-parse --verify $GITHUB_BASE_REF`
