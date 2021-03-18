@@ -15,23 +15,10 @@ jobs:
         python-version: "3.6"
     - name: 
       run: |
-        git remote -vv
-        git branch -vv
         git fetch origin $GITHUB_BASE_REF
-        git show-ref --head
-
         echo "-------------"
         git diff origin/$GITHUB_BASE_REF..HEAD
         echo "-------------"
 
-        echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
-        BASE_COMMIT=`git rev-parse --verify origin/$GITHUB_BASE_REF`
-        echo "Base commit = $BASE_COMMIT"
-        echo "GITHUB_SHA = ${{ github.sha }}"
-        echo "PR_HEAD_SHA = ${{ github.event.pull_request.head.sha }}"
-        
-        # actual commit in pr branch
-        CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}
-        git diff --merge-base ${GITHUB_SHA} ${BASE_COMMIT}..${CURRENT_COMMIT}
-
-        
+        #echo "GITHUB_SHA = ${{ github.sha }}"
+        #echo "PR_HEAD_SHA = ${{ github.event.pull_request.head.sha }}"
