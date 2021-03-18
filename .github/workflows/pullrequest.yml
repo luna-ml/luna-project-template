@@ -20,6 +20,11 @@ jobs:
         git fetch origin $GITHUB_BASE_REF
         git fetch
         git show-ref --head
+
+        echo "-------------"
+        git diff origin/$GITHUB_BASE_REF..HEAD
+        echo "-------------"
+
         echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
         BASE_COMMIT=`git rev-parse --verify origin/$GITHUB_BASE_REF`
         echo "Base commit = $BASE_COMMIT"
