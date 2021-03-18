@@ -4,7 +4,7 @@ on:
   pull_request:
 
 jobs:
-  server:
+  luna-ml:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout latest code
@@ -20,7 +20,8 @@ jobs:
         git fetch origin
         git show-ref --head
         echo "GITHUB_BASE_REF=$GITHUB_BASE_REF"
-        BASE_COMMIT=`git rev-parse --verify $GITHUB_BASE_REF`
+        BASE_COMMIT=`git rev-parse --verify origin/$GITHUB_BASE_REF`
+        echo "Base commit = $BASE_COMMIT"
         CURRENT_COMMIT=$GITHUB_SHA
         git diff ${BASE_COMMIT}...${CURRENT_COMMIT}
         
