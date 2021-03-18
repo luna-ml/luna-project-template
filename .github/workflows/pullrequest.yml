@@ -25,10 +25,8 @@ jobs:
         echo "GITHUB_SHA = ${{ github.sha }}"
         echo "PR_HEAD_SHA = ${{ github.event.pull_request.head.sha }}"
         
-        # CURRENT_COMMIT=$GITHUB_SHA
-        git diff ${BASE_COMMIT}...${GITHUB_SHA}
-
         # actual commit in pr branch
         CURRENT_COMMIT=${{ github.event.pull_request.head.sha }}
-        git diff ${BASE_COMMIT}...${CURRENT_COMMIT}
+        git diff --merge-base ${GITHUB_SHA} ${BASE_COMMIT}...${CURRENT_COMMIT}
+
         
