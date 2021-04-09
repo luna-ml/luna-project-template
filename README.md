@@ -1,6 +1,6 @@
 # Luna ML Project Template
 
-You can quick start a repository setup for Luna ML Project from this template.
+You can create a repository setup for [Luna ML](https://github.com/luna-ml/luna) Project from this template.
 See the [Quickstart](https://luna-ml.github.io/luna/quickstart/index.html) guide for more details.
 
 This template includes two Github workflows
